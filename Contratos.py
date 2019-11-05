@@ -8,7 +8,6 @@ class Contratos:
     juegos=[] 
     activos=[]
     inactivoss=[]
-
     def registrar_consola(self):
         consola=vj.Consola()
         self.funciones.append(consola)

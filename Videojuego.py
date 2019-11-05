@@ -16,11 +16,18 @@ class Consola:
     def consultar(self,nombre):
         if(self.consola==nombre):
             return "Clave: "+ str(self.clave) + ". Consola: " + str(self.consola) + " " + ". Costo por hora: " + str(self.precio)
+        elif(str(self.clave)==nombre):
+            return self.consola
         else:
             return "No existe la consola"
+    def RegistrarJuegoConsola(self,nombre):
+        if(self.consola==nombre):
+            return str(self.clave)
+        else: return None
     def consulta(self):
             return "Clave: "+ str(self.clave) + ". Consola: " +str(self.consola) +" Disponibles:"+str(self.consolas_disponibles)+" Precio de renta:"+ str(self.precio)
-   
+    def Consolas(self):
+        return str(self.consola)   
 
     def contratar(self,clv,cantidad):
         if(self.clave==clv):
@@ -33,4 +40,4 @@ class Consola:
                 print("No hay suficientes Consolas")
     
     def inventario(self):
-            return self.clave+")"+self.consola
+            return self.consola

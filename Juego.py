@@ -3,6 +3,7 @@ tipo de consola, …, etc).
 o Se cuenta con un mecanismo de búsqueda de juegos por nombre, el cual es recibidos como parámetros.
 Se retorna como salida la información completa del juego'''
 
+
 class Juego:
 
     def __init__(self,consola1):
@@ -12,6 +13,11 @@ class Juego:
   
     def buscar_juego(self,nombre):
         if(self.juego==nombre):
-            return  self.clave +")" +". Juego: " + self.juego + " " + ". Consola: " + self.consola
+            print(str(self.clave) +")" +". Juego: " + str(self.juego) + " " + ". Consola: ")
+            return self.consola
         else:
             return "No existe el juego"    
+    
+    def Juegos(self):
+        print("Juego: "+str(self.juego))
+        return self.consola
