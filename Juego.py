@@ -15,9 +15,23 @@ class Juego:
         if(self.juego==nombre):
             print(str(self.clave) +")" +". Juego: " + str(self.juego) + " " + ". Consola: ")
             return self.consola
+        elif(str(self.clave)==nombre):
+            return self.juego
         else:
-            return "No existe el juego"    
-    
+            return "No existe el juego"  
+
+    def buscar_juegoConsola(self,consolas):
+        if(self.consola==consolas):
+            return self.juego
+        else:
+            return "No existe el juego en esa consola"    
+
+    def JuegoRenta(self,nombre):
+        if(self.juego==nombre):
+            return self.clave
+        else:
+            return "No existe el juego" 
+
     def Juegos(self):
         print("Juego: "+str(self.juego))
         return self.consola

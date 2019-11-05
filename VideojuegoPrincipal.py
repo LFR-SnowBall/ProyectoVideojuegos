@@ -113,28 +113,71 @@ class Principal:
 
             elif(self.opcion==7):
                 print("Rentar")
-                self.obj_contrato.registrar_renta()
+                for i in range(0,len(self.obj_contrato.funciones)):
+                    self.resultado=self.obj_contrato.funciones[i].Consolas()
+                    if(self.resultado!=None):
+                        print(self.resultado)
+                self.Consola=input("Ingresa la consola a rentar: ")
+                for i in range(0,len(self.obj_contrato.funciones)):
+                    self.resultado=self.obj_contrato.funciones[i].RegistrarJuegoConsola(self.Consola)
+                if(self.resultado!=None):
+                    for i in range(0, len(self.obj_contrato.funciones)):
+                        self.resultado2=self.obj_contrato.juegos[i].buscar_juegoConsola(self.resultado)
+                        print(self.resultado2)
+                    if(self.resultado2!=None):
+                        self.Juego=input("Ingresa el juego que se rentara: ")
+                self.obj_contrato.registrar_renta(self.Consola,self.Juego)
+
 
                 print("________________________________")
             elif(self.opcion==8):
+                print("Terminar Renta")
+                self.Consola=input("Consola con la que terminara actividad: ")
+                self.Juego=input("Juego con el que terminara la actividad: ")
+                for i in range(0,len(self.obj_contrato.rentas)):
+                    self.resultado=self.obj_contrato.rentas[i].cambiar_Status(self.Consola,self.Juego)
+                    if(self.resultado==True):
+                        self.obj_contrato.rentas[i]="0"
+                        print("Cambio realizado")
+                    else: print("Consola o juego no encontrados activos")
 
 
                 print("________________________________")
             elif(self.opcion==9):
-                
+                print("Rentas Activas")
+                for i in range(0,len(self.obj_contrato.rentas)):
+                    self.resultado=self.obj_contrato.rentas[i].activo()
+                    if(self.resultado!=None):
+                        print(str(self.resultado))
                 print("________________________________")
                
             elif(self.opcion==10):
+                print("Rentas Inactivas")
+                for i in range(0,len(self.obj_contrato.rentas)):
+                    self.resultado=self.obj_contrato.rentas[i].activo()
+                    if(self.resultado!=None):
+                        print(self.resultado)
+                print("________________________________")
+            elif(self.opcion==11):
+                #errores
                 print("Generar reporte")
                 while i5==True:
-                
                     print("\n1) Ganancias por consola")
                     print("2) Imprimir inventario")
                     print("3) Buscar Producto")
                     self.op=int(input("Ingresa una opcion: "))
                     if self.op==1:
+                        self.resultadoX=0
                         print("Ganancias por consola")
-                        self.obj_contrato.ganancias_por_consola()
+                        self.busqueda=input("Nombre de la consola: ")
+                        for i in range(0, len(self.obj_contrato.funciones)):
+                            self.resultado=self.obj_contrato.funciones[i].consultarganancia(self.busqueda)
+                            if(self.resultado!=None):
+                                for i in range(0,len(self.obj_contrato.rentas)):
+                                    self.resultadoX+=self.obj_contrato.rentas[i].consola(self.busqueda)
+                        if(self.resultado2!=None):
+                            self.total=self.resultadoX*self.resultado
+                            print(str(self.total))
                         print("________________________________")
                     
                     elif self.op==2:

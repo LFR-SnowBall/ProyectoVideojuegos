@@ -6,8 +6,8 @@ class Contratos:
     funciones=[]
     rentas=[]#dulces
     juegos=[] 
-    activos=[]
-    inactivoss=[]
+   #activos=[]
+    #inactivoss=[]
     def registrar_consola(self):
         consola=vj.Consola()
         self.funciones.append(consola)
@@ -34,8 +34,8 @@ class Contratos:
         ganancias=dict()
         total=0
         for i in range(0,len(self.rentas)):
-            rentas=self.rentas[i].producto
-            ingresos=self.rentas[i].total
+            rentas=self.rentas[i]
+            ingresos=self.rentas[i]
             if(rentas not in ganancias):
                 ganancias[rentas]=ingresos
             else:

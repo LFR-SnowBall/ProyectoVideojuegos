@@ -11,13 +11,23 @@ class Consola:
       self.clave=int(input("ingresa la clave de la consola: "))
       self.consola=input("ingresa el nombre de la consola: ")
       self.consolas_disponibles=input("Consolas disponibles: ")
-      self.precio=input("ingresa el costo de renta por hora: ")
+      self.precio=int(input("ingresa el costo de renta por hora: "))
     
     def consultar(self,nombre):
         if(self.consola==nombre):
             return "Clave: "+ str(self.clave) + ". Consola: " + str(self.consola) + " " + ". Costo por hora: " + str(self.precio)
         elif(str(self.clave)==nombre):
             return self.consola
+        else:
+            return "No existe la consola"
+    def consultarganancia(self,nombre):
+        if(self.consola==nombre):
+            return self.precio
+        else:
+            return "No existe la consola"
+    def ConsolaRenta(self,nombre):
+        if(self.consola==nombre):
+            return self.clave
         else:
             return "No existe la consola"
     def RegistrarJuegoConsola(self,nombre):
